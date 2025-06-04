@@ -9,8 +9,15 @@
 <body>
     <header class="header"> 
         <div class="container">
-        <h1>Typing Master</h1>
-        <p>Improve your typing skills with our interactive lessons and tests.</p>
+            <nav id="main-nav" class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="register.html" id="register-link">Register</a>
+                <a href="typing-test.html">Typing Test</a>
+                <a href="about.html">About Us</a>
+                <span id="user-info" style="display:none; margin-left:1rem;"></span>
+            </nav>
+            <h1>Typing Master</h1>
+            <p>Improve your typing skills with our interactive lessons and tests.</p>
         </div>
     </header>  
     <main class="main-content">
@@ -19,8 +26,8 @@
                 <h2>Start Your Typing Journey</h2>
                 <p>Join thousands of users improving their typing speed and accuracy</p>
                 <div class="cta-button">
-                    <a href="login.html" class="btn btn-primary">Login</a>
-                    <a href="register.html" class="btn btn-secondary">Register</a>
+                    <a href="login.html" class="btn btn-primary" id="login-link">Login</a>
+                    <a href="register.html" class="btn btn-secondary" id="register-hero-link">Register</a>
                 </div>
             </section>
             <section class="features">
@@ -32,7 +39,7 @@
                 <div class="feature-card">
                     <h3>Track Progress</h3>
                     <p>View your improvement over time</p>
-                    <a href="login.html" class="btn btn-outline">View Dashboard</a>
+                    <a href="dashboard.html" class="btn btn-outline">View Dashboard</a>
                 </div>
             </section>
         </div>
@@ -44,13 +51,49 @@
     </main>
     <footer class="main-footer">
         <div class="container">
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="login.html">Login</a>
-                <a href="typing-test.html">Typing Test</a>
-            </nav>
-            <p>&copy; 2025 Typing Master. All rights reserved.</p>
+            <p>Made with ❤️ by the Typing Master Team. Practice every day and master your typing skills!</p>
         </div>
     </footer>
+    <script>
+      // Show username and logout if logged in
+      function updateNavUser() {
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        const userInfo = document.getElementById('user-info');
+        const loginLink = document.getElementById('login-link');
+        const registerLink = document.getElementById('register-link');
+        const dashboardLink = document.getElementById('dashboard-link');
+        if (user) {
+          userInfo.innerHTML = `👤 ${user.username} <button id="logout-btn" style="margin-left:8px;padding:2px 8px;border-radius:4px;border:none;background:#e74c3c;color:#fff;cursor:pointer;">Logout</button>`;
+          userInfo.style.display = 'inline-block';
+          if (loginLink) loginLink.style.display = 'none';
+          if (registerLink) registerLink.style.display = 'none';
+          if (dashboardLink) dashboardLink.style.display = '';
+          document.getElementById('logout-btn').onclick = function() {
+            localStorage.removeItem('currentUser');
+            location.reload();
+          };
+        } else {
+          userInfo.style.display = 'none';
+          if (loginLink) loginLink.style.display = '';
+          if (registerLink) registerLink.style.display = '';
+          if (dashboardLink) dashboardLink.style.display = 'none';
+        }
+      }
+      updateNavUser();
+
+      // Show/hide login and register buttons in hero based on login state
+      (function() {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const loginBtn = document.getElementById('login-link');
+        const registerBtn = document.getElementById('register-hero-link');
+        if (currentUser) {
+          if (loginBtn) loginBtn.style.display = 'none';
+          if (registerBtn) registerBtn.style.display = 'none';
+        } else {
+          if (loginBtn) loginBtn.style.display = '';
+          if (registerBtn) registerBtn.style.display = '';
+        }
+      })();
+    </script>
 </body>
 </html>

@@ -134,3 +134,18 @@ body {
 .main-footer a:hover {
     color: #3498db;
 }
+#main-nav, .main-nav {
+    background: none;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+#main-nav a, .main-nav a {
+    color: #ecf0f1;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+#main-nav a:hover, .main-nav a:hover {
+    color: #3498db;
+}

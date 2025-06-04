@@ -10,6 +10,12 @@
 <body>
     <header class="header">
         <div class="container">
+            <nav id="main-nav" class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="login.html">Login</a>
+                <a href="typing-test.html">Typing Test</a>
+                <a href="about.html">About Us</a>
+            </nav>
             <h1>Typing Master</h1>
             <p>Create your account to start improving your typing skills</p>
         </div>
@@ -17,7 +23,7 @@
 
     <main class="main-content">
         <div class="container">
-            <form class="registration-form" action="/register" method="POST">
+            <form class="registration-form" action="/register" method="POST" id="registerForm">
                 <h2>Create Account</h2>
                 
                 <div class="form-group">
@@ -49,6 +55,8 @@
                     </button>
                 </div>
                 
+                <div id="register-error" style="color:red; text-align:center; margin-bottom:1rem; display:none;"></div>
+                
                 <div class="login-link">
                     Already have an account? <a href="login.html">Sign in</a>
                 </div>
@@ -58,13 +66,9 @@
 
     <footer class="main-footer">
         <div class="container">
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="login.html">Login</a>
-                <a href="typing-test.html">Typing Test</a>
-            </nav>
-            <p>&copy; 2025 Typing Master. All rights reserved.</p>
+            <p>Made with ❤️ by the Typing Master Team. Practice every day and master your typing skills!</p>
         </div>
     </footer>
+    <script src="js/register.js"></script>
 </body>
 </html>
