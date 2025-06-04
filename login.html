@@ -5,52 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Master</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <h1>Typing Master</h1>
-            <p>Create your account to start improving your typing skills</p>
+            <p>Sign in to continue improving your typing skills</p>
         </div>
     </header>
 
     <main class="main-content">
         <div class="container">
-            <form class="registration-form" action="/register" method="POST">
-                <h2>Create Account</h2>
+            <form class="login-form" action="/login" method="POST">
+                <h2>Sign In</h2>
                 
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" name="username" required autofocus>
                 </div>
                 
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
-                    <div class="password-requirements">
-                        Password must be at least 8 characters long
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="reset-password.html">Forgot password?</a>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
-                </div>
-                
-                <div class="form-group">
                     <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
-                        Register
+                        Sign In
                     </button>
                 </div>
                 
-                <div class="login-link">
-                    Already have an account? <a href="login.html">Sign in</a>
+                <div class="register-link">
+                    Don't have an account? <a href="register.html">Register now</a>
+                </div>
+                
+                <div class="social-login">
+                    <p>Or sign in with:</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">G</a>
+                        <a href="#" class="social-icon">F</a>
+                        <a href="#" class="social-icon">T</a>
+                    </div>
                 </div>
             </form>
         </div>
@@ -60,7 +66,7 @@
         <div class="container">
             <nav>
                 <a href="index.html">Home</a>
-                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
                 <a href="typing-test.html">Typing Test</a>
             </nav>
             <p>&copy; 2025 Typing Master. All rights reserved.</p>
